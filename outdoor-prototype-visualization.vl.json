@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/leahmezacs/outside-air-quality.github.io/main/outside-air-quality.csv",
+    "format": {"parse": {"Date": "utc:'%m/%d/%Y'"}}
+  },
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "timeUnit": "month",
+      "field": "Date",
+      "scale": {"type": "utc"},
+      "axis": {"format": "%m/%d"},
+      "title": "Months of 2020"
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Daily Mean PM10 Concentration",
+      "title": "Daily Mean PM10 Concentration in Queens"
+    },
+    "color": {
+      "field": "day",
+      "type": "ordinal",
+      "scale": {"scheme": "magma"},
+      "legend": null
+    }
+  },
+  "config": {}
+}
